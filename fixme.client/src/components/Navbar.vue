@@ -1,10 +1,11 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg gold">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
           alt="logo"
-          src="../assets/img/cw-logo.png"
+          src="../assets/img/DW.jpg"
+          class="rounded-circle"
           height="45"
         />
       </div>
@@ -27,15 +28,10 @@
             Home
           </router-link>
         </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
-            About
-          </router-link>
-        </li>
       </ul>
-      <span class="navbar-text">
+      <span class="navbar-itm">
         <button
-          class="btn btn-outline-primary text-uppercase"
+          class="btn btn-outline-dark change text-uppercase text-dark border-dark"
           @click="login"
           v-if="!user.isAuthenticated"
         >
@@ -121,6 +117,13 @@ a:hover {
   text-transform: uppercase;
 }
 .nav-item .nav-link.router-link-exact-active{
-  color: var(--primary);
+  color: black;
+}
+.gold {
+  background-color: #f7df65;
+}
+.change:hover {
+  transition: 2ms all;
+color: white !important;
 }
 </style>
