@@ -5,11 +5,21 @@
       <span class="mx-2 text-white">Welcome to Derek's Playground</span>
     </h1>
   </div>
+  <button @click="trialOne" class="btn p-3 rounded-pill gold fab">
+    Trial One
+  </button>
 </template>
 
 <script>
+import { router } from '../router'
 export default {
-  name: 'Home'
+  setup() {
+    return {
+      trialOne() {
+        router.push({ name: 'TrialOne' })
+      }
+    }
+  }
 }
 </script>
 
@@ -22,5 +32,23 @@ export default {
     height: 200px;
     width: 200px;
   }
+}
+.gold {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16pt;
+  font-weight: 700;
+  background-color: #f7df65;
+  box-shadow: inset 5px 10px 5px 0px #e7c82d;
+}
+.fab {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+.gold:hover {
+  transition: .5s all;
+  color: white;
+  background-color: #e7c82d;
+  box-shadow: 1px 1px 1px 0px #e7c82d;
 }
 </style>

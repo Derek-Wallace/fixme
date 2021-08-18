@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link :to="{ name: 'Home' }" class="nav-link">
+          <router-link :to="{ name: 'Home' }" class="text-dark nav-link">
             Home
           </router-link>
         </li>
@@ -120,7 +120,7 @@ a:hover {
   color: black;
 }
 .gold {
-  background-color: #f7df65;
+  background-color: #e7c82dc9;
 }
 .change:hover {
   transition: 2ms all;
