@@ -12,8 +12,18 @@
       <div class="col-4"></div>
     </div>
     <div class="row"></div>
-    <div class="row"></div>
-    <div class="row"></div>
+    <div class="row d-flex justify-content-end align-items-end">
+      <p class="col-4 hid" style="height: 10vh;">
+        IT'S EVERYWHERE
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-5 d-flex justify-content-center">
+        <p class="hid-r">
+          Five
+        </p>
+      </div>
+    </div>
     <div class="row"></div>
   </div>
 </template>
@@ -37,6 +47,15 @@ export default {
   color: rgb(185, 185, 185);
 }
 .hid:hover {
+  transition: .2s all;
+  opacity: 100;
+}
+.hid-r {
+  opacity: 0;
+  font-size: 20pt;
+  color: rgb(255, 62, 62);
+}
+.hid-r:hover {
   transition: .2s all;
   opacity: 100;
 }
