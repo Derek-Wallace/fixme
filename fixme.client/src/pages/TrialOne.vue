@@ -24,7 +24,16 @@
         </p>
       </div>
     </div>
-    <div class="row"></div>
+    <div class="row" style="height: 15vh;">
+      <div class="col-3"></div>
+      <div class="col-4"></div>
+      <div class="col-5 hid d-flex align-items-end">
+        <input type="text" class="form-control" placeholder="red">
+        <input type="text" class="form-control" placeholder="blue">
+        <input type="text" class="form-control" placeholder="yellow">
+        <input type="text" class="form-control" placeholder="green">
+      </div>
+    </div>
   </div>
 </template>
 
