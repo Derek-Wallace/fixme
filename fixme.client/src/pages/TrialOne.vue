@@ -26,19 +26,44 @@
     </div>
     <div class="row" style="height: 15vh;">
       <div class="col-3"></div>
-      <div class="col-4"></div>
-      <div class="col-5 hid d-flex align-items-end">
-        <input type="text" class="form-control" placeholder="red">
-        <input type="text" class="form-control" placeholder="blue">
-        <input type="text" class="form-control" placeholder="yellow">
-        <input type="text" class="form-control" placeholder="green">
+      <div class="col-8"></div>
+      <div class="col-1 hid d-flex align-items-end">
+        <form @submit="answers">
+          <input v-model="state.red" type="text" class="form-control" placeholder="red">
+          <input v-model="state.blue" type="text" class="form-control" placeholder="blue">
+          <input v-model="state.yellow" type="text" class="form-control" placeholder="yellow">
+          <input v-model="state.green" type="text" class="form-control" placeholder="green">
+          <button class="btn btn-primary">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { reactive } from '@vue/reactivity'
+import { answersService } from '../services/AnswersService'
+import { AppState } from '../AppState'
 export default {
+  setup() {
+    const state = reactive({
+      red: '',
+      blue: '',
+      yellow: '',
+      green: ''
+    })
+    return {
+      state,
+      answers(state) {
+        const response = answersService.trialOneAnswer(state)
+        if (response === true) {
+          AppState.trialOne = true
+        }
+      }
+    }
+  }
 
 }
 </script>
