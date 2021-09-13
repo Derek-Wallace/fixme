@@ -28,11 +28,11 @@
       <div class="col-3"></div>
       <div class="col-8"></div>
       <div class="col-1 hid d-flex align-items-end">
-        <form @submit="answers">
-          <input v-model="state.red" type="text" class="form-control" placeholder="red">
-          <input v-model="state.blue" type="text" class="form-control" placeholder="blue">
-          <input v-model="state.yellow" type="text" class="form-control" placeholder="yellow">
-          <input v-model="state.green" type="text" class="form-control" placeholder="green">
+        <form @submit.prevent="answers">
+          <input v-model="state.answers.red" type="text" class="form-control" placeholder="red">
+          <input v-model="state.answers.blue" type="text" class="form-control" placeholder="blue">
+          <input v-model="state.answers.yellow" type="text" class="form-control" placeholder="yellow">
+          <input v-model="state.answers.green" type="text" class="form-control" placeholder="green">
           <button class="btn btn-primary">
             Submit
           </button>
@@ -46,19 +46,25 @@
 import { reactive } from '@vue/reactivity'
 import { answersService } from '../services/AnswersService'
 import { AppState } from '../AppState'
+import { router } from '../router'
+import { logger } from '../utils/Logger'
 export default {
   setup() {
     const state = reactive({
-      red: '',
-      blue: '',
-      yellow: '',
-      green: ''
+      answers: {
+        red: '',
+        blue: '',
+        yellow: '',
+        green: ''
+      }
     })
     return {
       state,
       answers(state) {
-        const response = answersService.trialOneAnswer(state)
+        const response = answersService.trialOneAnswer(state.answers)
+        logger.log(response)
         if (response === true) {
+          router.push({ name: 'TrialTwo' })
           AppState.trialOne = true
         }
       }
